@@ -20,6 +20,7 @@ def hello():
         }
     })
 
+
 @app.route("/movies/<movieid>", methods=['GET'])
 def movie_info(movieid):
     if movieid not in movies:
@@ -38,4 +39,3 @@ def movie_record():
 
 if __name__ == "__main__":
     app.run(port=5001, debug=True)
-

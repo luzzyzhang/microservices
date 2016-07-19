@@ -49,7 +49,8 @@ def user_bookings(username):
         raise NotFound("User '{}' not found.".format(username))
 
     try:
-        users_bookings = requests.get("http://127.0.0.1:5003/bookings/{}".format(username))
+        book_url = "http://127.0.0.1:5003/bookings/{}"
+        users_bookings = requests.get(book_url.format(username))
     except requests.exceptions.ConnectionError:
         raise ServiceUnavailable("The Bookings service is unavailable.")
 
@@ -64,7 +65,8 @@ def user_bookings(username):
         result[date] = []
         for movieid in movies:
             try:
-                movies_resp = requests.get("http://127.0.0.1:5001/movies/{}".format(movieid))
+                movie_url = "http://127.0.0.1:5001/movies/{}"
+                movies_resp = requests.get(movie_url.format(movieid))
             except requests.exceptions.ConnectionError:
                 raise ServiceUnavailable("The Movie service is unavailable.")
             movies_resp = movies_resp.json()
