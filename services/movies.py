@@ -1,7 +1,8 @@
-from services import root_dir, nice_json
+import json
+
 from flask import Flask
 from werkzeug.exceptions import NotFound
-import json
+from services import root_dir, nice_json
 
 
 app = Flask(__name__)
@@ -38,4 +39,4 @@ def movie_record():
 
 
 if __name__ == "__main__":
-    app.run(port=5001, debug=True)
+    app.run(port=5001, debug=False)

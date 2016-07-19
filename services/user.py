@@ -1,8 +1,8 @@
+import json
+import requests
 from services import root_dir, nice_json
 from flask import Flask
 from werkzeug.exceptions import NotFound, ServiceUnavailable
-import json
-import requests
 
 
 app = Flask(__name__)
@@ -91,4 +91,4 @@ def user_suggested(username):
 
 
 if __name__ == "__main__":
-    app.run(port=5000, debug=True)
+    app.run(port=5000, debug=False)
