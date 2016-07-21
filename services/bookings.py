@@ -1,3 +1,4 @@
+# -*-coding: utf-8 -*-
 import json
 from flask import Flask
 from werkzeug.exceptions import NotFound
@@ -26,17 +27,13 @@ def booking_list():
     return nice_json(bookings)
 
 
-@app.route("/bookings/test", methods=['POST'])
-def booking_test():
-    return 'test'
-
-
 @app.route("/bookings/<username>", methods=['GET'])
 def booking_record(username):
     if username not in bookings:
         raise NotFound
 
     return nice_json(bookings[username])
+
 
 if __name__ == "__main__":
     app.run(port=5003, debug=False)

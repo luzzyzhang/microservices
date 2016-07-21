@@ -1,3 +1,4 @@
+# -*-coding: utf-8 -*-
 import json
 import requests
 from services import root_dir, nice_json
